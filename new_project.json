@@ -1,0 +1,103 @@
+ {
+  "project": {
+    "name": "New project",
+    "id": "new",
+    "creationTs": 1687353311572,
+    "lastModifiedTs": 1687354034216
+  },
+  "graph": {
+    "nodes": [
+      {
+        "id": "text_processor_j4eb5n",
+        "nodeSpecId": "text_processor",
+        "customData": {
+          "initialWidth": 304,
+          "initialHeight": 288,
+          "previewX": 416,
+          "previewY": 16,
+          "previewWidth": 304,
+          "previewHeight": 288
+        },
+        "uiData": {
+          "posX": 272,
+          "posY": 112,
+          "width": 176,
+          "selected": false
+        },
+        "propValues": {
+          "mode": "format",
+          "separator": "\\n",
+          "formatString": "You are a French proofreader. When the user provides a sentence or phrase in French, please correct it, with an explanation for any grammar corrections or edits that you make. In addition, please provide any idiomatic expressions that could be substituted. Your role is to assist the user in improving their French language skills. \n\nThe French sentence is: \n\"{1}\"",
+          "hidePreview": false
+        },
+        "inputValues": {
+          "texts": []
+        },
+        "incomingEdges": {
+          "texts": [
+            {
+              "sourceNodeId": "input_text_oe8jig",
+              "outputId": "text"
+            }
+          ]
+        }
+      },
+      {
+        "id": "input_text_oe8jig",
+        "nodeSpecId": "input_text",
+        "customData": {
+          "initialWidth": 304,
+          "initialHeight": 144,
+          "previewX": 16,
+          "previewY": 16,
+          "previewWidth": 304,
+          "previewHeight": 144
+        },
+        "uiData": {
+          "posX": 27,
+          "posY": 57,
+          "width": 176,
+          "selected": false
+        },
+        "propValues": {
+          "text": "\"ditez-moi comment je peux t'aider avec le français\"",
+          "passwordMode": false,
+          "hidePreview": false
+        }
+      },
+      {
+        "id": "palm_textgen_mr8cc5",
+        "nodeSpecId": "palm_textgen",
+        "customData": {
+          "previewX": 944,
+          "previewY": 32,
+          "previewWidth": 320,
+          "previewHeight": 240
+        },
+        "uiData": {
+          "posX": 528,
+          "posY": 16,
+          "width": 176,
+          "selected": true
+        },
+        "propValues": {
+          "temperature": 0.5,
+          "maxOutputTokens": 256,
+          "hidePreview": false
+        },
+        "inputValues": {
+          "prompt": "",
+          "apiKey": ""
+        },
+        "incomingEdges": {
+          "prompt": [
+            {
+              "sourceNodeId": "text_processor_j4eb5n",
+              "outputId": "text"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
